@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Suite Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body class="light-mode">
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Maintenance Suite</h1>
+                <p class="subtitle">Minimalistický systém čistenia pre profesionálov</p>
+            </div>
+            <div class="status-badge" id="service-status">
+                <span class="dot"></span> Systém je online
+            </div>
+        </header>
+
+        <main>
+            <section id="analytics-section" class="card stats-card">
+                <div class="card-header">
+                    <div class="header-left">
+                        <h2>Storage Analytics</h2>
+                        <span id="storage-total" class="badge">SSD: 512 GB</span>
+                    </div>
+                    <div class="header-right">
+                        <span class="last-clean-label">Last Run:</span>
+                        <span id="last-clean" class="stat-value-mini">-</span>
+                    </div>
+                </div>
+                
+                <div class="storage-viz">
+                    <div class="storage-bar">
+                        <div id="storage-used-bar" class="bar-fill used" style="width: 0%"></div>
+                    </div>
+                    <div class="storage-labels">
+                        <div class="label-item">
+                            <span class="dot used"></span>
+                            <span>Used: <strong id="storage-used-val">0</strong> GB</span>
+                        </div>
+                        <div class="label-item">
+                            <span class="dot free"></span>
+                            <span>Free: <strong id="storage-free-val">0</strong> GB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-container">
+                    <h3>Last Session Breakdown (%)</h3>
+                    <table id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Before</th>
+                                <th>Freed</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                            <!-- Data populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="actions">
+                <button id="btn-full-clean" class="primary-btn">
+                    <span class="btn-icon">⚡</span> Spustiť kompletné čistenie
+                </button>
+
+                <div class="secondary-actions">
+                    <div class="action-card" id="card-npm">
+                        <h3>NPM Cache</h3>
+                        <p>Premazanie globálneho npm odpadu</p>
+                        <button onclick="runClean('npm')" class="secondary-btn">Vyčistiť</button>
+                    </div>
+                    <div class="action-card" id="card-pnpm">
+                        <h3>PNPM Store</h3>
+                        <p>Prerezanie centrálneho úložiska</p>
+                        <button onclick="runClean('pnpm')" class="secondary-btn">Vyčistiť</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="terminal-container">
+                <div class="terminal-header">
+                    <span>Live Console Output</span>
+                    <button class="clear-btn" onclick="clearLogs()">Clear</button>
+                </div>
+                <div id="terminal" class="terminal-body">
+                    <div class="terminal-line system">Vitajte v Maintenance Suite v3456...</div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div id="install-container" class="hidden">
+                <button id="btn-install" class="install-btn">
+                    <span class="btn-icon">📲</span> Inštalovať Maintenance Suite
+                </button>
+            </div>
+            <p>&copy; 2026 Admin Dashboard • Apple Design SaaS Model</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

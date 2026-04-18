@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+package-lock.json (exclude from sub-packages, keep at root)
+
+# Logs and Data
+*.log
+cleanup.log
+Dashboard/backend/history.json
+
+# Build and Testing
+Dashboard/tests/test-results/
+Dashboard/tests/playwright-report/
+Dashboard/tests/blob-report/
+Dashboard/tests/playwright/.cache/
+
+# OS/IDE
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store

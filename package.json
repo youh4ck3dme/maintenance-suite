@@ -1,0 +1,16 @@
+{
+  "name": "maintenance-suite",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "Dashboard/backend",
+    "Dashboard/frontend",
+    "Dashboard/tests"
+  ],
+  "scripts": {
+    "dev": "npm run start --workspace=backend",
+    "test": "npm test --workspaces",
+    "test:e2e": "npm run test --workspace=tests",
+    "install-all": "npm install"
+  }
+}

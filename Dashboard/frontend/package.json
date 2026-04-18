@@ -1,0 +1,9 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo 'Frontend is covered by E2E tests in the root suite' && exit 0"
+  },
+  "description": "Maintenance Suite Frontend"
+}
