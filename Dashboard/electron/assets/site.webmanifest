@@ -1,0 +1,14 @@
+{
+    "name": "Maintenance Suite",
+    "short_name": "MaintSuite",
+    "icons": [
+        {
+            "src": "appIcon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#1d1d1f",
+    "background_color": "#1d1d1f",
+    "display": "standalone"
+}

@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@capacitor-community/electron": "5.0.1"
+  }
+}

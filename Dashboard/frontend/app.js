@@ -1,3 +1,8 @@
+// API Base Configuration for Electron/Capacitor compatibility
+const API_BASE = window.location.protocol === 'capacitor-electron:' 
+    ? 'http://localhost:3456' 
+    : '';
+
 // Elements
 const terminal = document.getElementById('terminal');
 const lastCleanEl = document.getElementById('last-clean');
@@ -22,7 +27,7 @@ function clearLogs() {
 
 async function fetchStats() {
     try {
-        const res = await fetch('/api/stats');
+        const res = await fetch(`${API_BASE}/api/stats`);
         const data = await res.json();
         
         if (data.total) {
@@ -39,7 +44,7 @@ async function fetchStats() {
 
 async function fetchHistory() {
     try {
-        const res = await fetch('/api/history');
+        const res = await fetch(`${API_BASE}/api/history`);
         const history = await res.json();
         
         if (history && history.length > 0) {
@@ -69,10 +74,11 @@ async function fetchHistory() {
 }
 
 async function runClean(type) {
-    addLog(`Iniciujem čistenie: ${type.toUpperCase()}...`, 'system');
+    const actionName = type === 'diagnose' ? 'diagnostiku' : 'čistenie';
+    addLog(`Iniciujem ${actionName}: ${type.toUpperCase()}...`, 'system');
     
     try {
-        const response = await fetch(`/api/run/${type}`, { method: 'POST' });
+        const response = await fetch(`${API_BASE}/api/run/${type}`, { method: 'POST' });
         const data = await response.json();
         
         if (data.status === 'started') {
@@ -87,7 +93,7 @@ async function runClean(type) {
 
 // SSE Listener
 function startLogStream() {
-    const eventSource = new EventSource('/api/logs');
+    const eventSource = new EventSource(`${API_BASE}/api/logs`);
     
     eventSource.onmessage = (event) => {
         const data = JSON.parse(event.data);

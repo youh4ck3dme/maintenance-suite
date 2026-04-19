@@ -93,10 +93,12 @@ export async function buildApp(opts = {}) {
 
         if (type === 'full') {
             scriptPath = rootCleanupScript;
-        } else if (type === 'npm') {
+        } else if (type === 'npm' || type === 'pnpm') {
             scriptPath = rootCleanupScript; 
-        } else if (type === 'pnpm') {
-            scriptPath = rootCleanupScript;
+        } else if (type === 'diagnose') {
+            scriptPath = path.resolve(__dirname, '../../Diagnose-System.ps1');
+        } else if (type === 'emergency') {
+            scriptPath = path.resolve(__dirname, '../../Emergency-Clean.ps1');
         } else {
             return reply.code(400).send({ error: 'Invalid cleanup type' });
         }

@@ -232,6 +232,29 @@ h1 {
     margin-right: 10px;
 }
 
+.secondary-btn-large {
+    width: 100%;
+    background-color: transparent;
+    color: var(--accent-blue);
+    border: 1px solid rgba(0, 113, 227, 0.3);
+    padding: 18px;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondary-btn-large:hover {
+    background-color: rgba(0, 113, 227, 0.05);
+    border-color: var(--accent-blue);
+    transform: scale(1.01);
+}
+
 .secondary-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
