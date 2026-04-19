@@ -1,0 +1,26 @@
+# Node.js
+node_modules/
+dist/
+build/
+app/
+*.log
+
+# Electron
+electron/dist/
+electron/build/
+*.exe
+
+# OS / IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Project Specific
+*.local
+temporary/
+*.tmp
+emergency.ps1
+find_the_big_ones.ps1
+Dead-Versions-Report.ps1
+create_shortcut.ps1
